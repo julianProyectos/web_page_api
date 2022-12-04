@@ -10,6 +10,10 @@ const app = express();
 // permite a app entender json
 app.use(express.json());
 
+// app.set('Content-Type', 'text/html')
+app.set('Access-Control-Allow-Origin', 'http://localhost:3000');
+app.set('Access-Control-Allow-Credentials', 'true');
+
 // use routes from index.routes.js
 app.use(indexRoutes);
 
