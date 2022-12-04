@@ -11,11 +11,18 @@ const app = express();
 app.use(express.json());
 
 // app.set('Content-Type', 'text/html')
-app.setRequestHeader('Access-Control-Allow-Origin', "*");
-app.setRequestHeader('Access-Control-Allow-Credentials', 'true');
+// app.setRequestHeader('Access-Control-Allow-Origin', "*");
+// app.setRequestHeader('Access-Control-Allow-Credentials', 'true');
 
 // use routes from index.routes.js
 app.use(indexRoutes);
+
+app.use((req, res, next) => {
+  res.append('Access-Control-Allow-Origin', ['*']);
+  res.append('Access-Control-Allow-Methods', 'GET,PUT,POST,DELETE');
+  res.append('Access-Control-Allow-Headers', 'Content-Type');
+  next();
+});
 
 // use routes from user.routes.js
 app.use("/api/", usersRoutes);
