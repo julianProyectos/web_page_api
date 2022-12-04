@@ -11,8 +11,8 @@ const app = express();
 app.use(express.json());
 
 // app.set('Content-Type', 'text/html')
-app.set('Access-Control-Allow-Origin', "*");
-app.set('Access-Control-Allow-Credentials', 'true');
+app.setRequestHeader('Access-Control-Allow-Origin', "*");
+app.setRequestHeader('Access-Control-Allow-Credentials', 'true');
 
 // use routes from index.routes.js
 app.use(indexRoutes);
