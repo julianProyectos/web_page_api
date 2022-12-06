@@ -38,7 +38,7 @@ export const createTask = async (req, res) => {
 
 export const updateTask = async (req, res) => {
   const { id } = req.params;
-
+  console.log(id)
   const { title } = req.body;
   const { content } = req.body;
   const { completed } = req.body;
